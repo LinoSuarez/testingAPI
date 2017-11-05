@@ -1,0 +1,57 @@
+img {
+    width: 450px;
+    height: auto;
+}
+button {
+    /* border: 1px solid rgb(0, 0, 0);
+ 
+
+    border-radius: 0;
+    height: 40px; */
+} 
+#searchBtn {
+    width: 115px;
+    margin-left: 20px;
+    /* padding-top:5px; */
+    /* margin-top:-2px; */
+}
+#textBox {
+    /* height: 34px; */
+    /* width: 175px; */
+    /* margin-top: 2px; */
+    margin-top:0px;
+
+}
+#sectionButtons {
+    height: 25px;
+    padding-bottom: 10px;
+}
+body {
+    padding: 0 10px;
+}
+
+        .button-success,
+        .button-error,
+        .button-warning,
+        .button-secondary {
+            color: white;
+            border-radius: 0px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+            margin-right: 5px;
+        }
+
+        .button-success {
+            background: rgb(28, 184, 65); /* this is a green */
+        }
+
+        .button-error {
+            background: rgb(202, 60, 60); /* this is a maroon */
+        }
+
+        .button-warning {
+            background: rgb(223, 117, 20); /* this is an orange */
+        }
+
+        .button-secondary {
+            background: rgb(66, 184, 221); /* this is a light blue */
+        }
