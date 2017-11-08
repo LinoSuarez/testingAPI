@@ -23,16 +23,13 @@ function createButton(value){
     var button = $("<button>").attr("data-source", value).attr("class", "sections button-secondary pure-button").text(value)
     $("#sectionButtons").append(button);
 
-    $(".sections").click(function(){
-        console.log("s")
-        generateGifs(this)
-    })
+
 }
 
 function generateGifs(button){
     var limit = 10;
     var query = button;
-    console.log(button)
+    //console.log(button)
     var URL = "https://api.giphy.com/v1/gifs/search?q=" +
     query + "&api_key=dc6zaTOxFJmzC&limit=" + limit;
     $.ajax({
@@ -41,6 +38,7 @@ function generateGifs(button){
     }).done(function(event){
         $("#images").empty()
         var images = event.data;
+        console.log(event)
         for (var i = 0; i < images.length; i++){
             // console.log(images[i])
             //var imageUrl = images[i].images.original_still.url;
@@ -57,21 +55,25 @@ function generateGifs(button){
 
 
         }
-        $(".gifs").click(function(){
-            console.log(this)
-            if ($(this).attr("data-state") === "still"){
-                $(this).attr("src", $(this).attr("data-animate"));
-                $(this).attr("data-state", "animate")
-            } else {
-                $(this).attr("src", $(this).attr("data-still"));
-                $(this).attr("data-state", "still")
-            }
-            
-        });
+
         // console.log(event)
         // $("#images").append($("<img>").attr("src", event.))
     })
 }
 
+$(document.body).on("click", ".gifs", function(){
+    console.log(this)
+    if ($(this).attr("data-state") === "still"){
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate")
+    } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still")
+    }
+    
+});
 
-
+$(document.body).on("click", ".sections", function(event){
+    event.preventDefault();
+    generateGifs($(this).attr("data-source"))
+})
